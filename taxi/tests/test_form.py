@@ -2,7 +2,8 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 
-from taxi.forms import CarForm, CarModelSearchForm, DriverCreationForm, ManufacturerNameSearchForm
+from taxi.forms import (CarForm, CarModelSearchForm,
+                        DriverCreationForm, ManufacturerNameSearchForm)
 from taxi.models import Manufacturer, Driver
 
 
@@ -12,10 +13,14 @@ class CarFormsTests(TestCase):
             name="TestManufacturer", country="TestCountry"
         )
         self.driver1 = Driver.objects.create_user(
-            username="driver1", password="password123", license_number="QWE12345"
+            username="driver1",
+            password="password123",
+            license_number="QWE12345"
         )
         self.driver2 = Driver.objects.create_user(
-            username="driver2", password="password123", license_number="EWQ67890"
+            username="driver2",
+            password="password123",
+            license_number="EWQ67890"
         )
 
     def test_car_form_valid(self):
